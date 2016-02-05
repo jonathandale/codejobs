@@ -14,6 +14,7 @@ export default function searchJobs(state = initialState, action) {
       status: 'DONE',
       page: action.page,
       keyword: action.keyword,
+      location: action.location,
     };
   case types.SEARCH_PENDING_FOR_NEXT:
     return {

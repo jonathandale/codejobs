@@ -1,7 +1,7 @@
 import * as types from '../constants/SearchActionTypes';
 import jobSearch from '../api/JobSearch';
 
-function searchWithJobAPI(keyword, page, dispatch) {
+function searchWithJobAPI(keyword, location, page, dispatch) {
   if (page >= 1) {
     dispatch({
       type: types.SEARCH_PENDING_FOR_NEXT,
@@ -12,12 +12,13 @@ function searchWithJobAPI(keyword, page, dispatch) {
     });
   }
 
-  jobSearch(keyword, page, (data) => {
+  jobSearch(keyword, location, page, (data) => {
     dispatch({
       type: types.SEARCH_DONE,
       jobs: data,
       page,
       keyword,
+      location,
     });
   });
 }
@@ -26,12 +27,13 @@ export function searchNextPageAction() {
   return (dispatch, getState) =>{
     const page = getState().jobs.page + 1;
     const keyword = getState().jobs.keyword;
-    searchWithJobAPI(keyword, page, dispatch);
+    const location = getState().jobs.location;
+    searchWithJobAPI(keyword, location, page, dispatch);
   };
 }
 
-export function searchJobAction(keyword, page = 0) {
+export function searchJobAction(keyword, location, page = 0) {
   return (dispatch) => {
-    searchWithJobAPI(keyword, page, dispatch);
+    searchWithJobAPI(keyword, location, page, dispatch);
   };
 }

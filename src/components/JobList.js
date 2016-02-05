@@ -29,7 +29,7 @@ export default class JobList extends Component {
 
         {
           (() => {
-            if (this.props.status === 'DONE') {
+            if (this.props.status === 'DONE' && this.props.jobs.length) {
               return (
                 <div style={{marginBottom: '20px'}} className="row">
                   <div className="col-md-6 col-md-offset-3">
