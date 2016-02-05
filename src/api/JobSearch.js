@@ -1,12 +1,30 @@
+//Search providers
+const baseApiUrl = 'http://localhost:3003/search/';
+const providers = [
+  {
+    name: 'github',
+    buildUrl (keyword, page){
+      return `${baseApiUrl}github?search=${keyword}&page=${page}`;
+    }
+  },
+  {
+    name: 'stackoverflow',
+    buildUrl (keyword, page){
+      return `${baseApiUrl}stackoverflow?searchTerm=${keyword}&allowsremote=True&type=Permanent`;
+    }
+  }
+];
 
-//Github
+//main
 export default function jobSearch(keyword, page, callback) {
-  fetch(`http://localhost:3000/jobsearch/github?search=${keyword}&page=${page}`)
-  .then(function(response) {
-    return response.json();
-  }).then(function(data) {
-    callback(data);
-  }).catch(function(err) {
-    console.log('Error ', err);
+  providers.forEach(provider => {
+    fetch(provider.buildUrl(keyword, page))
+    .then(function(response) {
+      return response.json();
+    }).then(function(data) {
+      callback(data);
+    }).catch(function(err) {
+      console.log('Error ', err);
+    });
   });
 }
