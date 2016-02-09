@@ -12,21 +12,19 @@ export default class SearchInput extends Component {
       const keyword = ReactDom.findDOMNode(this.refs.keyword).value;
       const location = ReactDom.findDOMNode(this.refs.location).value;
       this.props.actions.searchJobAction(keyword, location);
-
-      document.getElementById('header').style.animationPlayState = 'running';
     }
   }
   render() {
     return (
       <div>
-        <div className="form-group">
+        <div>
           <input onKeyDown={this.searchJob.bind(this)}
                  type="text"
                  ref="keyword"
                  className="form-control input-lg"
                  placeholder="JavaScript, Clojure, Ruby, etc" />
         </div>
-        <div className="form-group">
+        <div>
           <input onKeyDown={this.searchJob.bind(this)}
                  type="text"
                  ref="location"

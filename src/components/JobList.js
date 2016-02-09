@@ -4,11 +4,17 @@ export default class JobList extends Component {
   static propTypes = {
     actions: PropTypes.object,
     jobs: PropTypes.array,
+    job: PropTypes.object,
     status: PropTypes.string,
   };
 
   nextPage() {
     this.props.actions.searchNextPageAction();
+  }
+
+  viewJob(event) {
+    event.preventDefault();
+    this.props.actions.viewJob(event.target.attributes['data-index'].value);
   }
 
   render() {
@@ -18,8 +24,10 @@ export default class JobList extends Component {
           {
               this.props.jobs.map((item, index) => {
                 return (
-                  <div className="col-md-3 image-item" key={`JobItem_${item.id}_${index}`}>
-                    <a href={item.url}>{item.title}</a>
+                  <div className="col-md-3 image-item" key={`JobItem_${index}`}>
+                    <a onClick={this.viewJob.bind(this)}
+                       href={item.url}
+                       data-index={index}>{item.title}</a>
                   </div>
                 );
               })

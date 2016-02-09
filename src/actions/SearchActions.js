@@ -37,3 +37,12 @@ export function searchJobAction(keyword, location, page = 0) {
     searchWithJobAPI(keyword, location, page, dispatch);
   };
 }
+
+export function viewJob(index){
+  return (dispatch) => {
+    dispatch({
+      type: types.VIEW_JOB,
+      job: index
+    });
+  }
+}
