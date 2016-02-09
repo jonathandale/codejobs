@@ -19,7 +19,7 @@ export default class JobDetail extends Component {
 
   render() {
     return (
-      <div>
+      <div className="px3 py1">
         {
           (() => {
             if(this.props.job) {

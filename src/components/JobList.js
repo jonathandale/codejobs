@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import classnames from 'classnames';
 
 export default class JobList extends Component {
   static propTypes = {
@@ -20,34 +21,24 @@ export default class JobList extends Component {
   render() {
     return (
       <div>
-        <div className="row">
+        <ul className="list-reset py1">
           {
               this.props.jobs.map((item, index) => {
+                var itemClass = classnames('block px2 py1 border-bottom job-item', this.props.className, {
+                  'selected': this.props.job && (this.props.job.url === item.url)
+                });
+
                 return (
-                  <div className="col-md-3 image-item" key={`JobItem_${index}`}>
+                  <li key={`JobItem_${index}`}>
                     <a onClick={this.viewJob.bind(this)}
                        href={item.url}
+                       className={itemClass}
                        data-index={index}>{item.title}</a>
-                  </div>
+                  </li>
                 );
               })
           }
-          <div className="clearfix" />
-        </div>
-
-        {
-          (() => {
-            if (this.props.status === 'DONE' && this.props.jobs.length) {
-              return (
-                <div style={{marginBottom: '20px'}} className="row">
-                  <div className="col-md-6 col-md-offset-3">
-                    <button onClick={this.nextPage.bind(this)} type="button" className="btn btn-default btn-lg btn-block">Load More</button>
-                  </div>
-                </div>
-              );
-            }
-          })()
-        }
+        </ul>
       </div>
     );
   }

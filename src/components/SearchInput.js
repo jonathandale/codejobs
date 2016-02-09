@@ -16,19 +16,19 @@ export default class SearchInput extends Component {
   }
   render() {
     return (
-      <div>
-        <div>
+      <div className="clearfix mxn1 flex-auto">
+        <div className="col col-6 px1">
           <input onKeyDown={this.searchJob.bind(this)}
                  type="text"
                  ref="keyword"
-                 className="form-control input-lg"
+                 className="field col-12"
                  placeholder="JavaScript, Clojure, Ruby, etc" />
         </div>
-        <div>
+        <div className="col col-6 px1">
           <input onKeyDown={this.searchJob.bind(this)}
                  type="text"
                  ref="location"
-                 className="form-control input-lg"
+                 className="field col-12"
                  placeholder="City, Country, Zip Code, or Remote" />
         </div>
         {()=>{

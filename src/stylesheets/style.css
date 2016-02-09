@@ -34,8 +34,28 @@
   --font-family: 'Avenir Next', 'Hevletica Neue', sans-serif;
 }
 
-
-
 html, body {
   height: 100%;
+}
+
+.wrap {
+  height: 100vh;
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
+
+
+/* custom */
+
+.job-item:hover {
+  text-decoration: none;
+  background: color(var(--silver) a(50%));
+  border-color: transparent;
+}
+
+.selected, .selected:hover {
+  background: var(--blue);
+  color: var(--white);
 }

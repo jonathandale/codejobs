@@ -23,17 +23,17 @@ export default class SearchApp extends Component {
   render() {
     const actions = bindActionCreators(action, this.props.dispatch);
     return (
-      <div>
-        <div className="header">
-          <div>
-            <SearchInput actions={actions} status={this.props.status} />
+      <div className="wrap flex flex-column flex-stretch">
+        <div className="border-bottom p1 border-bottom">
+          <SearchInput actions={actions} status={this.props.status} />
+        </div>
+        <div className="flex flex-auto">
+          <div className="flex-first col col-6 overflow-y-scroll border-right">
+            <JobList actions={actions} jobs={this.props.jobs} job={this.props.job} status={this.props.status}/>
           </div>
-        </div>
-        <div className="jobList">
-          <JobList actions={actions} jobs={this.props.jobs} status={this.props.status}/>
-        </div>
-        <div className="jobDetail">
-          <JobDetail actions={actions} job={this.props.job} />
+          <div className="flex-last col col-6 overflow-y-scroll">
+            <JobDetail actions={actions} job={this.props.job} />
+          </div>
         </div>
       </div>
     );
