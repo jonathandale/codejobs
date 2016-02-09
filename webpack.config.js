@@ -13,13 +13,20 @@ module.exports = {
   },
   module: {
     loaders: [
-      {test: /\.css$/, loader: 'style!css',},
+      {test: /\.css$/, loader: 'style-loader!css-loader!postcss-loader',},
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
       }
     ],
+  },
+  postcss: function (webpack) {
+    return [
+      require('autoprefixer')(),
+      require("postcss-import")({ addDependencyTo: webpack }),
+      require("postcss-cssnext")(),
+    ];
   },
   plugins: [],
   resolve: {
