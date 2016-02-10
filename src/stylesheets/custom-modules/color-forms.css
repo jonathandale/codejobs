@@ -1,0 +1,68 @@
+/* Custom Color Forms */
+
+@import 'basscss-defaults';
+
+.field {
+  background-color: transparent;
+  border: none;
+  border-bottom: var(--border-width) transparent solid;
+  color: var(--white);
+}
+
+.field::placeholder {
+  color: color(var(--white) a(60%));
+}
+
+.field:focus,
+.field.is-focused {
+  outline: none;
+  border-color: var(--white);
+}
+
+.field:focus::placeholder,
+.field.is-focused::placeholder {
+  color: color(var(--white) a(40%));
+}
+
+.field:disabled,
+.field.is-disabled {
+  background-color: var(--darken-2);
+  opacity: .5;
+}
+
+.field:read-only:not(select),
+.field.is-read-only {
+  background-color: var(--darken-2);
+}
+
+
+.field.is-success {
+}
+
+.field.is-success:focus,
+.field.is-success.is-focused {
+}
+
+.field.is-warning {
+}
+
+.field.is-warning:focus,
+.field.is-warning.is-focused {
+}
+
+.field:invalid,
+.field.is-error {
+}
+
+.field:invalid:focus,
+.field:invalid.is-focused,
+.field.is-error:focus,
+.field.is-error.is-focused {
+}
+
+:root {
+  --field-focus-color: var(--white);
+  --field-success-color: var(--green);
+  --field-warning-color: var(--yellow);
+  --field-error-color: var(--red);
+}

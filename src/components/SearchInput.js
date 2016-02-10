@@ -16,26 +16,23 @@ export default class SearchInput extends Component {
   }
   render() {
     return (
-      <div className="clearfix mxn1 flex-auto">
-        <div className="col col-6 px1">
-          <input onKeyDown={this.searchJob.bind(this)}
-                 type="text"
-                 ref="keyword"
-                 className="field col-12"
-                 placeholder="JavaScript, Clojure, Ruby, etc" />
+      <div className="clearfix flex-auto">
+        <div className="col-8 mx-auto">
+          <div className="col col-6">
+            <input onKeyDown={this.searchJob.bind(this)}
+                   type="text"
+                   ref="keyword"
+                   className="field col-12"
+                   placeholder="JavaScript, Clojure, Ruby, etc" />
+          </div>
+          <div className="col col-6">
+            <input onKeyDown={this.searchJob.bind(this)}
+                   type="text"
+                   ref="location"
+                   className="field col-12"
+                   placeholder="City, Country, Zip Code, or Remote" />
+          </div>
         </div>
-        <div className="col col-6 px1">
-          <input onKeyDown={this.searchJob.bind(this)}
-                 type="text"
-                 ref="location"
-                 className="field col-12"
-                 placeholder="City, Country, Zip Code, or Remote" />
-        </div>
-        {()=>{
-          if (this.props.status === 'PENDING') {
-            return (<div className="loading" />);
-          }
-        }()}
       </div>
     );
   }
