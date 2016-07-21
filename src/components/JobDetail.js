@@ -25,7 +25,7 @@ export default class JobDetail extends Component {
             if(this.props.job) {
               return (
                 <div>
-                  <h2>{this.props.job.title}</h2>
+                  <h2 className="red h1">{this.props.job.title}</h2>
                   <div dangerouslySetInnerHTML={this.getDescription()} />
                   <div dangerouslySetInnerHTML={this.getApply()} />
                 </div>

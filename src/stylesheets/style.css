@@ -35,11 +35,13 @@
 
 :root {
   --font-family: 'Avenir Next', 'Hevletica Neue', sans-serif;
-  --form-field-font-size: 1.25rem;
-  --form-field-height: 3rem;
-  --form-field-padding-y: 2rem;
-  --form-field-padding-x: 2rem;
+  --monospace-font-family: 'Inconsolata', 'Source Code Pro', Consolas, monospace;
+  --form-field-font-size: 1rem;
+  --form-field-height: 1.5rem;
+  --form-field-padding-y: 1.25rem;
+  --form-field-padding-x: 1.25rem;
   --black:  #333;
+  --red:    #a94133;
 }
 
 html, body {
@@ -54,20 +56,54 @@ html, body {
   overflow-y: scroll;
 }
 
+h1, h2, h3, h4, h5, h6,
+.monospace {
+  font-family: var(--monospace-font-family);
+}
 
 /* custom */
 .job-item {
   background-color: var(--white);
+  border-right: transparent 3px solid;
 }
 .job-item:hover {
   text-decoration: none;
-  background: color(var(--silver) a(50%));
+  background: color(var(--silver) a(30%));
+  border-right: transparent 3px solid;
 }
 .job-item.selected, .job-item.selected:hover {
-  background: color(var(--blue) a(80%));
-  color: var(--white);
+  background: color(var(--silver) a(30%));
+  border-right: var(--red) 3px solid;
 }
 .job-item.visited {
-  background-color: color(var(--blue) l(97%));
+  background-color: color(var(--silver) l(97%));
   color: var(--black);
+}
+
+
+/* cursor */
+@keyframes pulse {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.spine {
+  width: var(--space-4);
+}
+.spine-title {
+  transform: rotate(90deg);
+  transform-origin: 0px;
+  position: absolute;
+  display:inline-block;
+  margin:10px 50%;
+}
+.spine-title:after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 0px;
+  width: 16px;
+  right: -20px;
+  bottom: 10px;
+  border-bottom: 3px #fff solid;
+  animation: pulse 0.5s ease-in-out infinite alternate;
 }

@@ -52,7 +52,7 @@ export default class JobList extends Component {
           {
               this.props.jobs.map((item, index) => {
                 var isSelected = this.props.job && (this.props.job.url === item.url),
-                    itemClass = classnames('block px2 py1 m0 border-bottom job-item', this.props.className, {
+                    itemClass = classnames('red monospace h3 block px2 py1 m0 border-bottom job-item', this.props.className, {
                       'selected': isSelected,
                       'visited': localStorage.getItem(this.slugify(item.title)) && !isSelected
                   });

@@ -31,40 +31,43 @@ export default class SearchApp extends Component {
   render() {
     const actions = bindActionCreators(action, this.props.dispatch);
 
-    var headerClass = classnames('bg-blue', this.props.className, {
-      'flex flex-auto flex-center': this.props.status === 'IDLE'
-    });
-
     return (
-      <div className="wrap flex flex-column flex-stretch">
-        <div className={headerClass}>
-          <SearchInput actions={actions} status={this.props.status} />
+      <div>
+        <div className="spine fixed top-0 bottom-0 left-0 bg-red">
+          <p className="spine-title white h2 monospace">code@Jobs:~$</p>
         </div>
-        {()=>{
-          if (this.props.status === 'DONE') {
-            return (
-              <div className="border-bottom">
-                <div className="py1 px2">
-                  <p className="p0 m0">Showing {this.props.jobs.length} jobs</p>
+        <div className="wrap flex flex-column ml4">
+          <div className="bg-silver">
+            <div className="col col-5 bg-lighten-4">
+              {()=>{
+                return (
+                  <div className="">
+                    <div className="py1 px2 center">
+                      <p className="p0 m0 line-height-4">All jobs &#40;{this.props.jobs.length}&#41;</p>
+                    </div>
+                  </div>
+                );
+              }()}
+            </div>
+            <div className="col col-7 bg-lighten-4">
+              <SearchInput actions={actions} status={this.props.status} />
+            </div>
+          </div>
+          {()=>{
+            if (this.props.status !== 'IDLE') {
+              return (
+                <div className="flex flex-auto">
+                  <div className="flex-first col col-5 overflow-y-scroll">
+                    <JobList actions={actions} jobs={this.props.jobs} index={this.props.index} job={this.props.job} status={this.props.status}/>
+                  </div>
+                  <div className="flex-last col col-7 overflow-y-scroll border-left">
+                    <JobDetail actions={actions} jobs={this.props.jobs} job={this.props.job} />
+                  </div>
                 </div>
-              </div>
-            );
-          }
-        }()}
-        {()=>{
-          if (this.props.status !== 'IDLE') {
-            return (
-              <div className="flex flex-auto">
-                <div className="flex-first col col-6 overflow-y-scroll">
-                  <JobList actions={actions} jobs={this.props.jobs} index={this.props.index} job={this.props.job} status={this.props.status}/>
-                </div>
-                <div className="flex-last col col-6 overflow-y-scroll border-left">
-                  <JobDetail actions={actions} jobs={this.props.jobs} job={this.props.job} />
-                </div>
-              </div>
-            );
-          }
-        }()}
+              );
+            }
+          }()}
+        </div>
       </div>
     );
   }

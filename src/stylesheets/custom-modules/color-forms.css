@@ -2,26 +2,29 @@
 
 @import 'basscss-defaults';
 
-.field {
+input.field {
   background-color: transparent;
   border: none;
-  border-bottom: var(--border-width) transparent solid;
-  color: var(--white);
+  /*font-size: var(--form-field-font-size);
+  height: var(--form-field-height);
+  padding: var(--form-field-padding-y) var(--form-field-padding-x);*/
+  /*border-bottom: var(--border-width) transparent solid;*/
+  /*color: var(--white);*/
 }
 
 .field::placeholder {
-  color: color(var(--white) a(60%));
+  /*color: color(var(--white) a(60%));*/
 }
 
 .field:focus,
 .field.is-focused {
   outline: none;
-  border-color: var(--white);
+  /*border-color: var(--white);*/
 }
 
 .field:focus::placeholder,
 .field.is-focused::placeholder {
-  color: color(var(--white) a(40%));
+  /*color: color(var(--white) a(40%));*/
 }
 
 .field:disabled,
