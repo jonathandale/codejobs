@@ -10,6 +10,7 @@ import classnames from 'classnames';
 @connect(state => ({
   jobs: state.jobs.jobs,
   job: state.jobs.job,
+  index: state.jobs.index,
   status: state.jobs.status,
 }))
 export default class SearchApp extends Component {
@@ -18,7 +19,13 @@ export default class SearchApp extends Component {
     status: PropTypes.string.isRequired,
     jobs: PropTypes.array,
     job: PropTypes.object,
+    index: PropTypes.number,
     dispatch: PropTypes.func.isRequired,
+  }
+
+  componentDidMount() {
+    let getJobs = action.searchJobAction();
+    this.props.dispatch(getJobs);
   }
 
   render() {
@@ -36,8 +43,8 @@ export default class SearchApp extends Component {
         {()=>{
           if (this.props.status === 'DONE') {
             return (
-              <div className="bg-silver">
-                <div className="bg-lighten-4 py1 px2">
+              <div className="border-bottom">
+                <div className="py1 px2">
                   <p className="p0 m0">Showing {this.props.jobs.length} jobs</p>
                 </div>
               </div>
@@ -49,10 +56,10 @@ export default class SearchApp extends Component {
             return (
               <div className="flex flex-auto">
                 <div className="flex-first col col-6 overflow-y-scroll">
-                  <JobList actions={actions} jobs={this.props.jobs} job={this.props.job} status={this.props.status}/>
+                  <JobList actions={actions} jobs={this.props.jobs} index={this.props.index} job={this.props.job} status={this.props.status}/>
                 </div>
                 <div className="flex-last col col-6 overflow-y-scroll border-left">
-                  <JobDetail actions={actions} job={this.props.job} />
+                  <JobDetail actions={actions} jobs={this.props.jobs} job={this.props.job} />
                 </div>
               </div>
             );

@@ -32,7 +32,7 @@ export function searchNextPageAction() {
   };
 }
 
-export function searchJobAction(keyword, location, page = 0) {
+export function searchJobAction(keyword = "", location = "", page = 0) {
   return (dispatch) => {
     searchWithJobAPI(keyword, location, page, dispatch);
   };
@@ -42,7 +42,7 @@ export function viewJob(index){
   return (dispatch) => {
     dispatch({
       type: types.VIEW_JOB,
-      job: index
+      index: index
     });
   }
 }

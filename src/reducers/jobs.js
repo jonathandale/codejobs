@@ -3,7 +3,8 @@ import * as types from '../constants/SearchActionTypes';
 const initialState = {
   status: 'IDLE',
   jobs: [],
-  job: null
+  job: null,
+  index: 0
 };
 
 export default function searchJobs(state = initialState, action) {
@@ -25,7 +26,8 @@ export default function searchJobs(state = initialState, action) {
   case types.VIEW_JOB:
     return {
       ...state,
-      job: state.jobs[action.job]
+      job: state.jobs[action.index],
+      index: action.index
     };
   case types.SEARCH_PENDING:
     return {
