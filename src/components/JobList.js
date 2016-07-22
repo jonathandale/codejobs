@@ -10,8 +10,8 @@ export default class JobList extends Component {
     status: PropTypes.string,
   };
 
-  componentDidUpdate(props, state){
-    if(props.job) localStorage.setItem(this.slugify(state.job.title), true);
+  componentDidUpdate(){
+    if(this.props.job) localStorage.setItem(this.slugify(this.props.job.title), true);
   }
 
   nextPage() {
@@ -20,6 +20,7 @@ export default class JobList extends Component {
 
   handleKeyDown(event) {
     let idx;
+    event.preventDefault();
 
     if(event.which === 38) {
       if(this.props.index > 0) idx = this.props.index - 1;
@@ -33,7 +34,7 @@ export default class JobList extends Component {
 
   viewJob(event) {
     event.preventDefault();
-    this.props.actions.viewJob(Number(event.target.attributes['data-index'].value));
+    this.props.actions.viewJob(Number(event.currentTarget.attributes['data-index'].value));
   }
 
   //Should put in some util file or use underscore
@@ -64,7 +65,7 @@ export default class JobList extends Component {
                        className={itemClass}
                        data-index={index}
                        data-title={item.title}>
-                      <span>{item.title}</span>
+                      <span className="line-height-1">{item.title}</span>
                       <span className="clearfix">
                         <span className="left h6 block gray">{item.company}</span>
                         <span className="right h6 block gray">{item.relative_date}</span>

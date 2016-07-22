@@ -35,6 +35,7 @@ export default class SearchApp extends Component {
       <div>
         <div className="spine fixed top-0 bottom-0 left-0 bg-red">
           <p className="spine-title white h2 monospace">code@Jobs:~$</p>
+          <p className="white center h3 monospace bold absolute bottom-0 left-0 right-0">&lt; &#47;&gt;</p>
         </div>
         <div className="wrap flex flex-column ml4">
           <div className="bg-silver">
