@@ -53,7 +53,7 @@ export default class JobList extends Component {
           {
               this.props.jobs.map((item, index) => {
                 var isSelected = this.props.job && (this.props.job.url === item.url),
-                    itemClass = classnames('red monospace h3 block px2 py1 m0 border-bottom job-item', this.props.className, {
+                    itemClass = classnames('blue monospace h3 block p2 m0 border-bottom job-item', this.props.className, {
                       'selected': isSelected,
                       'visited': localStorage.getItem(this.slugify(item.title)) && !isSelected
                   });
@@ -65,11 +65,16 @@ export default class JobList extends Component {
                        className={itemClass}
                        data-index={index}
                        data-title={item.title}>
-                      <span className="line-height-1">{item.title}</span>
-                      <span className="clearfix">
-                        <span className="left h6 block gray">{item.company}</span>
-                        <span className="right h6 block gray">{item.relative_date}</span>
-                      </span>
+                      <div className="flex">
+                        <div>
+                          <p className="line-height-1 m0">{item.title}</p>
+                          <p className="h6 block gray m0">{item.company}</p>
+                        </div>
+                        <div className="flex-grow right-align ml1">
+                          <p className="h6 block black m0">{item.location}</p>
+                          <p className="h6 block gray m0">{item.relative_date}</p>
+                        </div>
+                      </div>
                     </a>
                   </li>
                 );

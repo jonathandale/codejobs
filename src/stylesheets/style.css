@@ -65,21 +65,16 @@ h1, h2, h3, h4, h5, h6,
 /* custom */
 .job-item {
   background-color: var(--white);
-  border-right: transparent 3px solid;
+  border-right: transparent 4px solid;
 }
 .job-item:hover {
   text-decoration: none;
-  background: color(var(--silver) a(30%));
-  border-right: transparent 3px solid;
 }
 .job-item.selected, .job-item.selected:hover {
   background: color(var(--silver) a(30%));
-  border-right: var(--red) 3px solid;
+  border-right: var(--blue) 4px solid;
 }
-.job-item.visited {
-  /*background-color: color(var(--silver) l(97%));*/
-  /*color: var(--black);*/
-}
+.job-item.visited {}
 
 
 /* cursor */

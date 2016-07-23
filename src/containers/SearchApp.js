@@ -33,13 +33,14 @@ export default class SearchApp extends Component {
 
     return (
       <div>
-        <div className="spine fixed top-0 bottom-0 left-0 bg-red">
+        <div className="spine fixed top-0 bottom-0 left-0 bg-black">
           <p className="spine-title white h2 monospace">code@Jobs:~$</p>
-          <p className="white center h3 monospace bold absolute bottom-0 left-0 right-0">&lt; &#47;&gt;</p>
+          <p style={{letterSpacing: '2px'}}
+             className="white center h3 monospace bold absolute bottom-0 left-0 right-0">&lt;&#47;&gt;</p>
         </div>
         <div className="wrap flex flex-column ml4">
           <div className="bg-silver">
-            <div className="col col-5 bg-lighten-4">
+            <div className="col col-5 bg-lighten-3">
               {()=>{
                 return (
                   <div className="">
@@ -50,7 +51,7 @@ export default class SearchApp extends Component {
                 );
               }()}
             </div>
-            <div className="col col-7 bg-lighten-4">
+            <div className="col col-7 bg-lighten-3">
               <SearchInput actions={actions} status={this.props.status} />
             </div>
           </div>
@@ -61,7 +62,7 @@ export default class SearchApp extends Component {
                   <div className="flex-first col col-5 overflow-y-scroll">
                     <JobList actions={actions} jobs={this.props.jobs} index={this.props.index} job={this.props.job} status={this.props.status}/>
                   </div>
-                  <div className="flex-last col col-7 overflow-y-scroll border-left">
+                  <div className="flex-last col col-7 overflow-y-scroll border-left relative">
                     <JobDetail actions={actions} jobs={this.props.jobs} job={this.props.job} />
                   </div>
                 </div>
