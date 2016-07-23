@@ -9,7 +9,7 @@ input.field {
   height: var(--form-field-height);
   padding: var(--form-field-padding-y) var(--form-field-padding-x);*/
   border-bottom: var(--border-width) var(--silver) solid;
-  /*color: var(--white);*/
+  color: var(--blue);
 }
 
 .field::placeholder {

@@ -32,11 +32,6 @@ export default class JobList extends Component {
     }
   }
 
-  // TODO: Decide on pagination
-  // nextPage() {
-  //   this.props.actions.searchNextPageAction();
-  // }
-
   handleKeyDown(event) {
     let idx, direction;
     event.preventDefault();

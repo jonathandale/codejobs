@@ -14,14 +14,8 @@ export default function searchJobs(state = initialState, action) {
       ...state,
       jobs: [...state.jobs, ...action.jobs],
       status: 'DONE',
-      page: action.page,
       keyword: action.keyword,
       location: action.location,
-    };
-  case types.SEARCH_PENDING_FOR_NEXT:
-    return {
-      ...state,
-      status: 'PENDING_FOR_NEXT',
     };
   case types.VIEW_JOB:
     return {
@@ -33,6 +27,7 @@ export default function searchJobs(state = initialState, action) {
     return {
       ...state,
       jobs: [],
+      job: null,
       status: 'PENDING',
     };
   default:

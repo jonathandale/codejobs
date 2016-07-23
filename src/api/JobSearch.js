@@ -3,22 +3,22 @@ const baseApiUrl = 'http://localhost:3003/search/';
 const providers = [
   {
     name: 'github',
-    buildUrl (keyword, location, page){
-      return `${baseApiUrl}github?search=${keyword}&location=${location}&page=${page}`;
+    buildUrl (keyword, location){
+      return `${baseApiUrl}github?search=${keyword}&location=${location}`;
     }
   },
   {
     name: 'stackoverflow',
-    buildUrl (keyword, location, page){
+    buildUrl (keyword, location){
       return `${baseApiUrl}stackoverflow?searchTerm=${keyword}&location=${location}`;
     }
   }
 ];
 
 //main
-export default function jobSearch(keyword, location, page, callback) {
+export default function jobSearch(keyword, location, callback) {
   providers.forEach(provider => {
-    fetch(provider.buildUrl(keyword, location, page))
+    fetch(provider.buildUrl(keyword, location))
     .then(function(response) {
       return response.json();
     }).then(function(data) {
