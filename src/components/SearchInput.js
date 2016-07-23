@@ -47,7 +47,8 @@ export default class SearchInput extends Component {
         </div>
         <div className="flex-none bg-blue black block"
              onClick={this.searchJob.bind(this)}
-             style={searchStyle}>&nbsp;</div>
+             style={searchStyle}
+             dangerouslySetInnerHTML={{__html:"&nbsp;"}}></div>
       </div>
     );
   }

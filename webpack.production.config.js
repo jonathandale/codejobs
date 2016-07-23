@@ -2,14 +2,12 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  debug: true,
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
     './src/index',
   ],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'static/app.js',
+    filename: 'app.js',
     publicPath: '/',
   },
   module: {
