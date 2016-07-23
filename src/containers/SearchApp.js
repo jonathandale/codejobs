@@ -33,14 +33,14 @@ export default class SearchApp extends Component {
 
     return (
       <div>
-        <div className="spine fixed top-0 bottom-0 left-0 bg-black">
+        <div className="spine fixed top-0 bottom-0 left-0 bg-blue">
           <p className="spine-title white h2 monospace">code@Jobs:~$</p>
           <p style={{letterSpacing: '2px'}}
              className="white center h3 monospace bold absolute bottom-0 left-0 right-0">&lt;&#47;&gt;</p>
         </div>
         <div className="wrap flex flex-column ml4">
-          <div className="bg-silver">
-            <div className="col col-5 bg-lighten-3">
+          <div>
+            <div className="col col-5 border-bottom">
               {()=>{
                 return (
                   <div className="">
@@ -51,7 +51,7 @@ export default class SearchApp extends Component {
                 );
               }()}
             </div>
-            <div className="col col-7 bg-lighten-3">
+            <div className="col col-7">
               <SearchInput actions={actions} status={this.props.status} />
             </div>
           </div>

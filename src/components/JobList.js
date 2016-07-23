@@ -65,7 +65,7 @@ export default class JobList extends Component {
                        className={itemClass}
                        data-index={index}
                        data-title={item.title}>
-                      <div className="flex">
+                      <div className="flex flex-center">
                         <div>
                           <p className="line-height-1 m0">{item.title}</p>
                           <p className="h6 block gray m0">{item.company}</p>

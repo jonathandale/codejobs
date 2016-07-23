@@ -9,7 +9,7 @@ export default class SearchInput extends Component {
   };
 
   searchKeyDown(event) {
-    if (event.which === 13) searchJob();
+    if (event.which === 13) this.searchJob();
   }
 
   searchJob() {
@@ -45,7 +45,7 @@ export default class SearchInput extends Component {
                    placeholder="City, Country, Zip Code, or Remote" />
           </div>
         </div>
-        <div className="flex-none bg-black black block"
+        <div className="flex-none bg-blue black block"
              onClick={this.searchJob.bind(this)}
              style={searchStyle}>&nbsp;</div>
       </div>

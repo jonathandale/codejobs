@@ -8,7 +8,7 @@ input.field {
   /*font-size: var(--form-field-font-size);
   height: var(--form-field-height);
   padding: var(--form-field-padding-y) var(--form-field-padding-x);*/
-  /*border-bottom: var(--border-width) transparent solid;*/
+  border-bottom: var(--border-width) var(--silver) solid;
   /*color: var(--white);*/
 }
 
@@ -19,7 +19,7 @@ input.field {
 .field:focus,
 .field.is-focused {
   outline: none;
-  /*border-color: var(--white);*/
+  border-color: var(--blue);
 }
 
 .field:focus::placeholder,
