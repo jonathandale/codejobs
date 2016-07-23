@@ -39,7 +39,7 @@ export default class SearchApp extends Component {
              className="white center h3 monospace bold absolute bottom-0 left-0 right-0">&lt;&#47;&gt;</p>
         </div>
         <div className="wrap flex flex-column ml4">
-          <div>
+          <div className="control-bar">
             <div className="col col-5 border-bottom">
               {()=>{
                 return (
@@ -59,7 +59,7 @@ export default class SearchApp extends Component {
             if (this.props.status !== 'IDLE') {
               return (
                 <div className="flex flex-auto">
-                  <div className="flex-first col col-5 overflow-y-scroll">
+                  <div className="job-list flex-first col col-5 overflow-y-scroll">
                     <JobList actions={actions} jobs={this.props.jobs} index={this.props.index} job={this.props.job} status={this.props.status}/>
                   </div>
                   <div className="flex-last col col-7 overflow-y-scroll border-left relative">

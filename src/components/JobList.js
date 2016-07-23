@@ -14,27 +14,57 @@ export default class JobList extends Component {
     if(this.props.job) localStorage.setItem(this.slugify(this.props.job.title), true);
   }
 
-  nextPage() {
-    this.props.actions.searchNextPageAction();
+  isItemInView(idx, direction){
+    let el = document.querySelector('a[data-index="' + idx +'"]'),
+        viewHeight = window.innerHeight,
+        itemHeight = el.offsetHeight,
+        controlHeight = document.querySelector('.control-bar').offsetHeight,
+        jobList = document.querySelector('.job-list'),
+        itemBottom = ((el.offsetTop + el.offsetHeight) - jobList.scrollTop),
+        hiddenAmount = itemBottom - viewHeight,
+        topInView = (el.offsetTop - controlHeight);
+
+    if(direction === 'down' && (hiddenAmount > 0)) {
+      jobList.scrollTop += (hiddenAmount - 1);
+    }
+    else if (direction === 'up' && (jobList.scrollTop > topInView)) {
+      jobList.scrollTop = topInView;
+    }
   }
 
+  // TODO: Decide on pagination
+  // nextPage() {
+  //   this.props.actions.searchNextPageAction();
+  // }
+
   handleKeyDown(event) {
-    let idx;
+    let idx, direction;
     event.preventDefault();
 
     if(event.which === 38) {
-      if(this.props.index > 0) idx = this.props.index - 1;
+      if(this.props.index > 0) {
+        idx = this.props.index - 1;
+        direction = 'up';
+      }
     }
     else if(event.which === 40) {
-      if(this.props.index < this.props.jobs.length) idx = this.props.index + 1;
+      if(this.props.index < this.props.jobs.length) {
+        idx = this.props.index + 1;
+        direction = 'down';
+      }
     }
 
-    if(typeof idx === 'number') this.props.actions.viewJob(idx);
+    if(typeof idx === 'number') {
+      this.props.actions.viewJob(idx);
+      this.isItemInView(idx, direction);
+    }
   }
 
   viewJob(event) {
+    let idx = Number(event.currentTarget.attributes['data-index'].value);
     event.preventDefault();
-    this.props.actions.viewJob(Number(event.currentTarget.attributes['data-index'].value));
+    this.props.actions.viewJob(idx);
+    this.isItemInView(idx);
   }
 
   //Should put in some util file or use underscore
