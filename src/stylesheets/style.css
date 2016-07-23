@@ -74,7 +74,21 @@ h1, h2, h3, h4, h5, h6,
   background: color(var(--silver) a(30%));
   border-right: var(--blue) 4px solid;
 }
-.job-item.visited {}
+.job-item:after {
+  content: '';
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  border: 4px var(--blue) solid;
+  position: absolute;
+  top: 7px;
+  right: 3px;
+}
+.job-item.selected:after,
+.job-item.visited:after {
+  display: none;
+}
 
 
 /* cursor */
