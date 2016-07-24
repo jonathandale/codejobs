@@ -39,11 +39,11 @@ export default class SearchApp extends Component {
              className="white center h3 monospace bold absolute bottom-0 left-0 right-0">&lt;&#47;&gt;</p>
         </div>
         <div className="wrap flex flex-column ml4">
-          <div className="control-bar">
-            <div className="col col-5 border-bottom">
+          <div className="control-bar border-bottom">
+            <div className="col col-5 border-top border-white">
               {()=>{
                 return (
-                  <div className="">
+                  <div className="border-top border-white">
                     <div className="py1 px2 center">
                       <p className="p0 m0 line-height-4">All jobs &#40;{this.props.jobs.length}&#41;</p>
                     </div>
