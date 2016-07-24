@@ -43,7 +43,7 @@ export default class JobList extends Component {
       }
     }
     else if(event.which === 40) {
-      if(this.props.index < this.props.jobs.length) {
+      if((this.props.index + 1) < this.props.jobs.length) {
         idx = this.props.index + 1;
         direction = 'down';
       }
