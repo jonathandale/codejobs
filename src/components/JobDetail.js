@@ -43,7 +43,7 @@ export default class JobDetail extends Component {
             else {
               return (
                 <p style={{top: '50%'}}
-                   className="absolute right-0 left-0 center caps silver">No Job Selected</p>
+                   className="absolute right-0 left-0 center caps gray">No Job Selected</p>
               )
             }
           })()

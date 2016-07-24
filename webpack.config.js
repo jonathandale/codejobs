@@ -1,6 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
 
+var featureFlags = new webpack.DefinePlugin({
+  __DEV__: true,
+  __PROD__: false,
+});
+
 module.exports = {
   debug: true,
   entry: [
@@ -36,7 +41,7 @@ module.exports = {
       require("postcss-cssnext")(),
     ];
   },
-  plugins: [],
+  plugins: [featureFlags],
   resolve: {
     extensions: ['', '.js', '.json'],
   },

@@ -1,5 +1,9 @@
 //Search providers
-const baseApiUrl = 'http://localhost:3003/search/';
+let baseApiUrl;
+
+if(__DEV__) baseApiUrl = 'http://localhost:3003/search/';
+if(__PROD__) baseApiUrl = '/search/';
+
 const providers = [
   {
     name: 'github',
