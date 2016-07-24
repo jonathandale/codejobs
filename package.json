@@ -1,5 +1,5 @@
 {
-  "name": "jobserve",
+  "name": "codejobs",
   "version": "1.0.0",
   "description": "Tech job search from multiple sources",
   "main": "index.js",
@@ -57,6 +57,7 @@
     "postcss": "^5.0.14",
     "postcss-cssnext": "^2.4.0",
     "postcss-import": "^8.0.2",
+    "postcss-loader": "^0.8.0",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
