@@ -2,7 +2,7 @@
 let baseApiUrl;
 
 if(__DEV__) baseApiUrl = 'http://localhost:3003/search/';
-if(__PROD__) baseApiUrl = 'https://codejobs-api-zangybporl.now.sh/search/';
+if(__PROD__) baseApiUrl = 'https://codejobs-api.now.sh/search/';
 
 const providers = [
   {
