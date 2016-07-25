@@ -59,7 +59,7 @@ export default class SearchApp extends Component {
             if (this.props.status !== 'IDLE') {
               return (
                 <div className="flex flex-auto">
-                  <div className="job-list flex-first col col-5 overflow-y-scroll">
+                  <div className="job-list flex-first col col-5 overflow-y-scroll relative">
                     <JobList actions={actions} jobs={this.props.jobs} index={this.props.index} job={this.props.job} status={this.props.status}/>
                   </div>
                   <div className="flex-last col col-7 overflow-y-scroll border-left relative">

@@ -106,6 +106,13 @@ export default class JobList extends Component {
               })
           }
         </ul>
+        {
+          (() => {
+            if(!this.props.jobs.length) {
+              return (<div className="loader"></div>)
+            }
+          })()
+        }
       </div>
     );
   }
